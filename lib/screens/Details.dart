@@ -176,13 +176,27 @@ class _DetailScreenState extends State<DetailScreen> {
             child: GestureDetector(onTap: (){
               setState(() {
                 cartList.add(proList[selectedIndex]);
-                Navigator.of(context).pushNamed('/cart');
+                bool status=false;
+                int index=0;
+                for(int i=0;i<cartList.length;i++)
+                  {
+                    if(cartList[i]['name']==proList[selectedIndex]['name'])
+                      {
+                         index=i;
+                         status=true;
+                      }
+                  }
+                if(status)
+                  {
+                    cartList[index]['qty']++;
+                  }
+              //  Navigator.of(context).pushNamed('/cart');
               });
             },
 
               child: Container(
                 margin: EdgeInsets.all(65),
-                height: 90,
+                height: 80,
                 width: 300,
                 decoration: BoxDecoration(
                   color: Colors.blue.shade300,

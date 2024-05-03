@@ -1,6 +1,7 @@
 import 'package:app_ui/screens/Details.dart';
 import 'package:app_ui/screens/Home.dart';
 import 'package:app_ui/screens/cart.dart';
+import 'package:app_ui/screens/checkOut.dart';
 import 'package:flutter/material.dart';
 
 void main()
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/home':(context)=>HomePage(),
         '/Detail':(context)=>DetailScreen(),
         '/cart':(context)=>CartScreen(),
+        '/check':(context)=>CheckOut(),
       },
     );
   }

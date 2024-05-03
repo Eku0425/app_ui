@@ -18,18 +18,20 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('homepage'),
         actions: [
-           Padding(
-             padding: const EdgeInsets.all(8.0),
-             child: GestureDetector(onTap: (){
-                setState(() {
-                  cartList.add;
-                  Navigator.of(context).pushNamed('/cart');
-
-                });
-             },
-
-                 child: Icon(Icons.add_shopping_cart,size: 25,)),
-           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    cartList.add;
+                    Navigator.of(context).pushNamed('/cart');
+                  });
+                },
+                child: Icon(
+                  Icons.add_shopping_cart,
+                  size: 25,
+                )),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -39,11 +41,12 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.all(10),
               height: 200,
               width: 400,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.cyan,
-              ),
-              child: Image.network('https://t4.ftcdn.net/jpg/03/51/32/81/360_F_351328144_bTvUCqDyLb6eHXliKcCXiPtVgBPvuTEL.jpg',
-                fit: BoxFit.cover,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/bennr.jpg'),
+                ),
               ),
             ),
             Wrap(
@@ -51,7 +54,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 ...List.generate(
                   proList.length,
-                  (index) => GestureDetector(
+                      (index) => GestureDetector(
                     onTap: () {
                       setState(() {
                         selectedIndex = index;
@@ -73,7 +76,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Container box1({required String img, required String name,required int price}) {
+  Container box1(
+      {required String img, required String name, required int price}) {
     return Container(
       margin: EdgeInsets.all(10),
       height: 220,
@@ -90,19 +94,30 @@ class _HomePageState extends State<HomePage> {
           top: 150,
         ),
         child: Container(
-              height: 50,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.blue.shade300,
-              ),
+          height: 50,
+          width: 100,
+          decoration: BoxDecoration(
+            color: Colors.blue.shade300,
+          ),
           child: Column(
             children: [
-              Text(name,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
-              Text('$price' + '/-',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+              Text(
+                name,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                '$price' + '/-',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
             ],
           ),
-            ),
-
+        ),
       ),
     );
   }
