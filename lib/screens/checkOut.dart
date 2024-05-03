@@ -36,9 +36,18 @@ class _CheckOutState extends State<CheckOut> {
           children: [
             Column(
               children: [
-                Text('TotalAmount= ${amount}',style: TextStyle(color: Colors.white,fontSize: 15,),),
-                Text('GSt =13%'),
-                Text('qty = ${qty}'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Total Amount = ${amount}',style: TextStyle(color: Colors.white,fontSize: 20,),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10,right: 90),
+                  child: Text('Gst = 13%',style: TextStyle(color: Colors.white,fontSize: 20),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10,right: 90),
+                  child: Text('qty = ${qty}',style: TextStyle(color: Colors.white,fontSize: 20),),
+                ),
 
               ],
             ),
